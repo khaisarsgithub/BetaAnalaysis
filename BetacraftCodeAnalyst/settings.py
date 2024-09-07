@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -109,27 +111,14 @@ WSGI_APPLICATION = 'BetacraftCodeAnalyst.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # Check if we're running in production or development
-if os.environ.get('DJANGO_ENV') == 'production':
+#if os.environ.get('DJANGO_ENV') == 'production':
     # Production Enviroment
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME'),
-            'USER': os.environ.get('DB_USER'),
-            'PASSWORD': os.environ.get('DB_PASSWORD'),
-            'HOST': os.environ.get('DB_HOST'),
-            'PORT': os.environ.get('DB_PORT'),
-            'CONN_MAX_AGE': 600,  # Connection persistence for 10 minutes
-        }
-    }
-
+}
 # Ensure all required environment variables are set for production
 if os.environ.get('DJANGO_ENV') == 'production':
     if not all([os.environ.get('DB_NAME'), os.environ.get('DB_USER'), 

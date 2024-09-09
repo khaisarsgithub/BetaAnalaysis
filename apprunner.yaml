@@ -10,8 +10,8 @@ source:
 build:
   commands:
     install:
-      - sudo apt install -y python3-pip
-      - pip3 install --upgrade pip3
+      - sudo apt install -y python3 python3-pip virtualenv 
+      - source venv/bin/activate
       - pip3 install -r requirements.txt
       
     build:

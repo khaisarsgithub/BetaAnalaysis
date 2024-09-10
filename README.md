@@ -38,5 +38,8 @@ Configure `gunicorn` and `nginx` for your production environment. Refer to the d
 ## 5. Start Server
 Run the application using your preferred method (e.g., using `gunicorn`):  
 ```bash
-gunicorn --config gunicorn_config.py your_project.wsgi
+gunicorn --config gunicorn_config.py BetacraftCodeAnalyst.wsgi
 ```
+
+
+## For User Instructions: https://docs.google.com/document/d/1a8b4UVeq3qRsgXUvfWxHNuHsoBVAOYrKBZLnaL_Q9R4/edit?usp=sharing

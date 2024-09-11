@@ -9,19 +9,12 @@ source:
 
 build:
   commands:
-    pre-run:
-    - uname -a  # OS and kernel version.
-    - lsb_release -a # Linux distribution
-
-    # install:
-      - sudo apt install -y virtualenv
-      - python3 -m venv venv
-      - source venv/bin/activate
-      - pip3 install -r requirements.txt
-      
     build:
-      # Install the required dependencies using pip
-      - pip3 install -r requirements.txt
+      - python3.11 -m ensurepip --upgrade
+      - python3.11 -m pip install Django
+      - python3.11 -m pip install -r requirements.txt
+      - python3.11 -m pip install gunicorn
+
 
     post-build:
       # Collect static files and run database migrations
@@ -30,6 +23,11 @@ build:
 
     env:
     # Set environment variables
+     env:
+    - name: DEBUG
+      value: "on"
+    - name: ALLOWED_HOSTS
+      value: "*"
     - name: PYTHONPATH
       value: "/app"
     - name: EMAIL_ADDRESS
@@ -62,8 +60,22 @@ build:
       value: "BetacraftCodeAnalyst.settings"
 
 run:
-  runtime-version: 3.11.0
-  command:  gunicorn BetacraftCodeAnalyst.wsgi:application --bind 0.0.0.0:8080
+  runtime-version: 3.11
+  pre-run:
+    - pip3 install gunicorn
+    - pip3 install -r requirements.txt
+    - which gunicorn
+  command: gunicorn BetacraftCodeAnalyst.wsgi:application  --log-file -
+  network: 
+    port: 8000
+    env: 8000
+  env:
+    - name: DEBUG
+      value: "on"
+    - name: SECRET_KEY
+      value: "*"
+    - name: ALLOWED_HOSTS
+      value: "*"
 
 instance_configuration:
   cpu: 1024

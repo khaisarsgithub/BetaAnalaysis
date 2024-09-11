@@ -20,10 +20,10 @@ run:
     - pip3 install gunicorn
     - pip3 install -r requirements.txt
     - which gunicorn
-  command: gunicorn app_runne.wsgir:application  --log-file -
+  command: gunicorn --bind 0.0.0.0:8000 BetacraftCodeAnalyst.wsgi:application  --log-file -
   network: 
     port: 8000
-    env: 8000  
+    env: 8000
   env:
     - name: DEBUG
       value: "on"

@@ -21,43 +21,41 @@ build:
       - python3 manage.py collectstatic --noinput
       - python3 manage.py migrate
 
-    env:
-    # Set environment variables
-     env:
-    - name: DEBUG
-      value: "on"
-    - name: ALLOWED_HOSTS
-      value: "*"
-    - name: PYTHONPATH
-      value: "/app"
-    - name: EMAIL_ADDRESS
-      value: "mdkhaisars118@gmail.com"
-    - name: EMAIL_PASSWORD
-      value: "caenzmmyohlvexau"
-    - name: GEMINI_API_KEY
-      value: "AIzaSyD03Le05r5qjtUU3X6osXsruuDYJ7jahHw"
-    - name: EMAIL_SERVER
-      value: "smtp.gmail.com"
-    - name: GITHUB_CLIENT_ID
-      value: "Ov23liUJfKAnqRctefnJ"
-    - name: GITHUB_CLIENT_SECRET
-      value: "ff4dd825793cdea9f1b43bf8c805104b58f66a8d"
-    - name: BREVO_API_KEY
-      value: "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"
-    - name: DB_NAME
-      value: "betacraft"
-    - name: DB_USER
-      value: "postgres"
-    - name: DB_PASSWORD
-      value: "Khaisar118@Postgres"
-    - name: DB_HOST
-      value: "localhost"
-    - name: DB_PORT
-      value: "5432"
-    - name: SECRET_KEY
-      value: "django-insecure--@83p*)%2u@m50f&u=51evsy544=mirweoe3cghz!wgzk22o@y"
-    - name: DJANGO_SETTINGS_MODULE
-      value: "BetacraftCodeAnalyst.settings"
+  env:
+  - name: DEBUG
+    value: "on"
+  - name: ALLOWED_HOSTS
+    value: "*"
+  - name: PYTHONPATH
+    value: "/app"
+  - name: EMAIL_ADDRESS
+    value: "mdkhaisars118@gmail.com"
+  - name: EMAIL_PASSWORD
+    value: "caenzmmyohlvexau"
+  - name: GEMINI_API_KEY
+    value: "AIzaSyD03Le05r5qjtUU3X6osXsruuDYJ7jahHw"
+  - name: EMAIL_SERVER
+    value: "smtp.gmail.com"
+  - name: GITHUB_CLIENT_ID
+    value: "Ov23liUJfKAnqRctefnJ"
+  - name: GITHUB_CLIENT_SECRET
+    value: "ff4dd825793cdea9f1b43bf8c805104b58f66a8d"
+  - name: BREVO_API_KEY
+    value: "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"
+  - name: DB_NAME
+    value: "betacraft"
+  - name: DB_USER
+    value: "postgres"
+  - name: DB_PASSWORD
+    value: "Khaisar118@Postgres"
+  - name: DB_HOST
+    value: "localhost"
+  - name: DB_PORT
+    value: "5432"
+  - name: SECRET_KEY
+    value: "django-insecure--@83p*)%2u@m50f&u=51evsy544=mirweoe3cghz!wgzk22o@y"
+  - name: DJANGO_SETTINGS_MODULE
+    value: "BetacraftCodeAnalyst.settings"
 
 run:
   runtime-version: 3.11

@@ -21,6 +21,7 @@ build:
     build:
       # Install the required dependencies using pip
       - pip3 install -r requirements.txt
+      - pip3 install django==5.1.1
 
     post-build:
       # Collect static files and run database migrations

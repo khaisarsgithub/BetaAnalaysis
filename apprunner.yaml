@@ -19,7 +19,7 @@ run:
   pre-run:
     - pip3 install gunicorn
     - pip3 install -r requirements.txt
-  command: gunicorn --bind 0.0.0.0:8080 BetacraftCodeAnalyst.wsgi:application  --log-file -
+  command: gunicorn --bind 0.0.0.0:8080 BetacraftCodeAnalyst.wsgi:application --log-file -
   network: 
     port: 8080
   env:
@@ -29,11 +29,3 @@ run:
       value: "*"
     - name: ALLOWED_HOSTS
       value: "*"
-service:
-  name: BetaAnalysis
-  healthcheck:
-    path: "/"
-    interval: 5
-    timeout: 2
-    healthy_threshold: 1
-    unhealthy_threshold: 5
